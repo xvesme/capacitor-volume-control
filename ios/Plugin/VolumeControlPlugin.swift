@@ -7,7 +7,7 @@ public class VolumeControlPlugin: CAPPlugin {
 
     @objc func setVolume(_ call: CAPPluginCall) {
         let value = call.getFloat("value") ?? 0.5
-        volumeControl.setVolume(value: value)
+        volumeControl.setVolume(value)
         call.resolve()
     }
 
