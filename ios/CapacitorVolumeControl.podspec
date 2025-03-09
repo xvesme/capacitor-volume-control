@@ -16,5 +16,7 @@ Pod::Spec.new do |s|
   # 🔥 Видаляємо `s.public_header_files`, бо немає `.h` файлів
   s.exclude_files = 'Example'
 
+  s.ios.vendored_frameworks = 'Plugin/*.framework'
+
   s.dependency 'Capacitor'
 end
