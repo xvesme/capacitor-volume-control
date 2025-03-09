@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.example.volumecontrol">
+    <application>
+        <meta-data
+                android:name="capacitor.plugins"
+                android:value="com.example.volumecontrol.VolumeControlPlugin" />
+    </application>
+</manifest>
+

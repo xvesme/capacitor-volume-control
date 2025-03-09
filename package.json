@@ -1,0 +1,21 @@
+{
+  "name": "capacitor-volume-control",
+  "version": "1.0.0",
+  "description": "Capacitor plugin for controlling device volume",
+  "main": "dist/plugin.js",
+  "types": "dist/plugin.d.ts",
+  "files": ["dist/", "ios/", "android/"],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf node_modules/ dist/",
+    "prepare": "npm run build"
+  },
+  "capacitor": {
+    "ios": {
+      "src": "ios/"
+    },
+    "android": {
+      "src": "android/"
+    }
+  }
+}
