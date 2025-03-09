@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '12.0'
   s.swift_versions = ['5.0']
 
-  s.source_files = 'Plugin/**/*.{swift,m}'
+  s.source_files = 'ios/Plugin/**/*.{swift,m}'
   s.exclude_files = 'Example'
 
   s.dependency 'Capacitor'
