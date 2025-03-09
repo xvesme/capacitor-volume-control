@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.swift_versions = ['5.0']
 
   # Виправлений шлях до файлів
-  s.source_files = 'ios/Plugin/**/*.{swift,m}'
+  s.source_files = 'Plugin/**/*.{swift,m}'
   # 🔥 Видаляємо `s.public_header_files`, бо немає `.h` файлів
   s.exclude_files = 'Example'
 
