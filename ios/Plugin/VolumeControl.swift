@@ -12,7 +12,7 @@ public class VolumeControl: NSObject {
         super.init()
         setupVolumeView()
         observeVolumeChanges()
-        observeAudioInterruptions()
+        observeInterruption()
     }
 
     private func setupVolumeView() {
@@ -34,7 +34,7 @@ public class VolumeControl: NSObject {
         }
     }
 
-    private func observeAudioInterruptions() {
+    private func observeInterruption() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleAudioInterruption(_:)), name: AVAudioSession.interruptionNotification, object: nil)
     }
 
@@ -43,10 +43,8 @@ public class VolumeControl: NSObject {
             let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
             let type = AVAudioSession.InterruptionType(rawValue: typeValue) {
             if type == .began {
-                print("🔇 Аудіо перервано (інший додаток почав грати)")
                 NotificationCenter.default.post(name: Notification.Name("AudioInterrupted"), object: nil, userInfo: ["playing": false])
             } else if type == .ended {
-                print("🔊 Аудіо може бути відновлено")
                 NotificationCenter.default.post(name: Notification.Name("AudioInterrupted"), object: nil, userInfo: ["playing": true])
             }
         }

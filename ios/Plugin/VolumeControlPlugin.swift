@@ -8,6 +8,7 @@ public class VolumeControlPlugin: CAPPlugin {
     override public func load() {
         super.load()
         NotificationCenter.default.addObserver(self, selector: #selector(volumeDidChange(_:)), name: Notification.Name("VolumeDidChange"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(audioInterrupted(_:)), name: Notification.Name("AudioInterrupted"), object: nil)
     }
 
     @objc func setVolume(_ call: CAPPluginCall) {
@@ -24,6 +25,12 @@ public class VolumeControlPlugin: CAPPlugin {
     @objc private func volumeDidChange(_ notification: Notification) {
         if let userInfo = notification.userInfo, let value = userInfo["value"] as? Float {
             notifyListeners("volumeChange", data: ["value": value])
+        }
+    }
+
+    @objc private func audioInterrupted(_ notification: Notification) {
+        if let userInfo = notification.userInfo, let playing = userInfo["playing"] as? Bool {
+            notifyListeners("audioInterrupted", data: ["playing": playing])
         }
     }
 }
