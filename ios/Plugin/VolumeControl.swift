@@ -18,6 +18,8 @@ public class VolumeControl: NSObject {
         DispatchQueue.main.async {
             if let window = UIApplication.shared.windows.first {
                 self.volumeView.showsRouteButton = false
+                self.volumeView.alpha = 0.01
+                self.volumeView.frame = CGRect(x: -1000, y: -1000, width: 1, height: 1)
                 window.addSubview(self.volumeView)
             }
         }
@@ -39,7 +41,7 @@ public class VolumeControl: NSObject {
         DispatchQueue.main.async {
             for view in self.volumeView.subviews {
                 if let slider = view as? UISlider {
-                    slider.setValue(value / 100, animated: false) // ✅ Без імітації натискання
+                    slider.setValue(value / 100, animated: false)
                     return
                 }
             }
