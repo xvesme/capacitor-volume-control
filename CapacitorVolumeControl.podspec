@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.description       = 'Capacitor plugin for controlling system volume on iOS and Android.'
   s.license           = { :type => 'MIT', :file => '../LICENSE' }
   s.homepage          = 'https://github.com/xvesme/capacitor-volume-control'
-  s.author            = { 'xvesme' => 'your-email@example.com' }
+  s.author            = { 'mistofm' => 'support@mistofm.com' }
   s.source            = { :git => 'https://github.com/xvesme/capacitor-volume-control.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '12.0'
